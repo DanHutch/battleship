@@ -4,7 +4,8 @@ require 'pry'
 
 class GridSpace
   attr_reader   :row,
-                :column
+                :column,
+                :name
 
   attr_accessor :occupied,
                 :hitted,
@@ -14,6 +15,7 @@ class GridSpace
   def initialize(row, column)
     @row = row
     @column = column
+    @name = "#{row}#{column}"
     @occupied = false
     @hit = false
     @missed = false

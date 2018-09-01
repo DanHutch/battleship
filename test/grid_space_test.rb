@@ -17,6 +17,11 @@ class GridSpaceTest < Minitest::Test
     assert_equal(5, space.column)
   end
 
+  def test_it_has_a_name
+    space = GridSpace.new("a", 5)
+    assert_equal("a5", space.name)
+  end
+
   def test_it_begins_as_unoccupied
     space = GridSpace.new("a", 5)
     refute(space.occupied)
