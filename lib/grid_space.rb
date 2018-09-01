@@ -19,7 +19,6 @@ class GridSpace
     @occupied = false
     @hitted = false
     @missed = false
-    @guessed = false
   end
 
   def occupy
@@ -27,15 +26,13 @@ class GridSpace
   end
 
   def guess
-    if @guessed
+    if @hitted || @missed
       # turn.tell_guessed_already
     elsif @occupied
       @hitted = true
-      @guessed = true
       # turn.tell_hitted
     else
       @missed = true
-      @guessed = true
       # turn.tell_missed
     end
   end

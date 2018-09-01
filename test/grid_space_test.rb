@@ -2,7 +2,6 @@
 
 require './test/test_helper'
 require './lib/grid_space'
-require 'pry'
 
 class GridSpaceTest < Minitest::Test
 
@@ -37,21 +36,10 @@ class GridSpaceTest < Minitest::Test
     refute(space.missed)
   end
 
-  def test_it_begins_as_unguessed
-    space = GridSpace.new("a", 5)
-    refute(space.guessed)
-  end
-
   def test_it_can_be_occupied
     a1 = GridSpace.new("a", 1)
     a1.occupy
     assert_equal(true, a1.occupied)
-  end
-
-  def test_it_can_be_guessed
-    a1 = GridSpace.new("a", 1)
-    a1.guess
-    assert(a1.guessed)
   end
 
   def test_it_can_be_hit
@@ -60,7 +48,6 @@ class GridSpaceTest < Minitest::Test
     a1.guess
     assert(a1.hitted)
     refute(a1.missed)
-    assert(a1.guessed)
   end
 
   def test_it_can_be_missed
@@ -68,7 +55,6 @@ class GridSpaceTest < Minitest::Test
     a1.guess
     assert(a1.missed)
     refute(a1.hitted)
-    assert(a1.guessed)
   end
 
 end
