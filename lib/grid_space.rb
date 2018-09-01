@@ -15,7 +15,6 @@ class GridSpace
   def initialize(row, column)
     @row = row
     @column = column
-    @name = "#{row}#{column}"
     @occupied = false
     @hitted = false
     @missed = false
@@ -27,13 +26,13 @@ class GridSpace
 
   def guess
     if @hitted || @missed
-      # turn.tell_guessed_already
+      "Already guessed; please guess again."
     elsif @occupied
       @hitted = true
-      # turn.tell_hitted
+      "Hit!"
     else
       @missed = true
-      # turn.tell_missed
+      "Miss!"
     end
   end
 
