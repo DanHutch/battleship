@@ -17,9 +17,27 @@ class GridSpace
     @column = column
     @name = "#{row}#{column}"
     @occupied = false
-    @hit = false
+    @hitted = false
     @missed = false
     @guessed = false
+  end
+
+  def occupy
+    @occupied = true
+  end
+
+  def guess
+    if @guessed
+      # turn.tell_guessed_already
+    elsif @occupied
+      @hitted = true
+      @guessed = true
+      # turn.tell_hitted
+    else
+      @missed = true
+      @guessed = true
+      # turn.tell_missed
+    end
   end
 
 end

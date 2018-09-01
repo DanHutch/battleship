@@ -42,4 +42,33 @@ class GridSpaceTest < Minitest::Test
     refute(space.guessed)
   end
 
+  def test_it_can_be_occupied
+    a1 = GridSpace.new("a", 1)
+    a1.occupy
+    assert_equal(true, a1.occupied)
+  end
+
+  def test_it_can_be_guessed
+    a1 = GridSpace.new("a", 1)
+    a1.guess
+    assert(a1.guessed)
+  end
+
+  def test_it_can_be_hit
+    a1 = GridSpace.new("a", 1)
+    a1.occupy
+    a1.guess
+    assert(a1.hitted)
+    refute(a1.missed)
+    assert(a1.guessed)
+  end
+
+  def test_it_can_be_missed
+    a1 = GridSpace.new("a", 1)
+    a1.guess
+    assert(a1.missed)
+    refute(a1.hitted)
+    assert(a1.guessed)
+  end
+
 end
