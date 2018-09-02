@@ -5,7 +5,8 @@ require 'pry'
 class GridSpace
   attr_reader   :row,
                 :column,
-                :name
+                :name,
+                :visual
 
   attr_accessor :occupied,
                 :hitted,
@@ -18,19 +19,27 @@ class GridSpace
     @occupied = false
     @hitted = false
     @missed = false
+    @visual = " "
   end
 
-  def occupy
+  def player_occupy
     @occupied = true
+    @visual = "O"
+  end
+
+  def npc_occupy
+    @occupied = true 
   end
 
   def guess
     if @hitted || @missed
       "Already guessed; please guess again."
     elsif @occupied
+      @visual = "H"
       @hitted = true
       "Hit!"
     else
+      @visual = "M"
       @missed = true
       "Miss!"
     end

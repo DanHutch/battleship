@@ -19,6 +19,7 @@ class GridSpaceTest < Minitest::Test
   def test_it_begins_as_unoccupied
     space = GridSpace.new("a", 5)
     refute(space.occupied)
+    assert_equal(" ", space.visual)
   end
 
   def test_it_begins_as_unhit
@@ -31,18 +32,41 @@ class GridSpaceTest < Minitest::Test
     refute(space.missed)
   end
 
-  def test_it_can_be_occupied
-    a1 = GridSpace.new("a", 1)
-    a1.occupy
-    assert_equal(true, a1.occupied)
+  def test_it_begins_with_blank_visual
+    space = GridSpace.new("a", 5)
+    assert_equal(" ", space.visual)
   end
 
-  def test_it_can_be_hit
+  def test_it_can_be_occupied_by_player
     a1 = GridSpace.new("a", 1)
-    a1.occupy
+    a1.player_occupy
+    assert_equal(true, a1.occupied)
+    assert_equal("O", a1.visual)
+  end
+
+  def test_it_can_be_occupied_by_npc
+    a1 = GridSpace.new("a", 1)
+    a1.npc_occupy
+    assert_equal(true, a1.occupied)
+    assert_equal(" ", a1.visual)
+  end
+
+  def test_it_can_be_hit_by_player
+    a1 = GridSpace.new("a", 1)
+    a1.npc_occupy
     assert_equal("Hit!", a1.guess)
     assert(a1.hitted)
     refute(a1.missed)
+    assert_equal("H", a1.visual)
+  end
+
+  def test_it_can_be_hit_by_npc
+    a1 = GridSpace.new("a", 1)
+    a1.player_occupy
+    assert_equal("Hit!", a1.guess)
+    assert(a1.hitted)
+    refute(a1.missed)
+    assert_equal("H", a1.visual)
   end
 
   def test_it_can_be_missed
@@ -50,6 +74,7 @@ class GridSpaceTest < Minitest::Test
     assert_equal("Miss!", a1.guess)
     assert(a1.missed)
     refute(a1.hitted)
+    assert_equal("M", a1.visual)
   end
 
   def test_a_space_cannot_be_guessed_twice

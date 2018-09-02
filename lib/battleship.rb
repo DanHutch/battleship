@@ -2,9 +2,8 @@
 
 require 'pry'
 
-class BattleShip
-
-
-
-
-end
+# class BattleShip
+#
+#
+#
+# end

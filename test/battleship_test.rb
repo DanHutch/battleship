@@ -2,7 +2,6 @@
 
 require './test/test_helper'
 require './lib/battleship'
-require 'pry'
 
 class BattleShipTest < Minitest::Test
 
