@@ -13,7 +13,6 @@ class Board
                 :player_c_row,
                 :player_d_row
 
-
   def initialize
     @npc_a_row          = {}
     @npc_b_row          = {}
@@ -23,7 +22,6 @@ class Board
     @player_b_row       = {}
     @player_c_row       = {}
     @player_d_row       = {}
-
 
     @top_border         = "==========\n"
     @npc_a_line         = ""
