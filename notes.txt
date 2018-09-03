@@ -1,0 +1,8 @@
+## notes.txt
+
+_class Round_ will govern _class PlayerTurn_ and _class NpcTurn_ , as well as the outputs and changes that each round requires between turns. a generic _class Turn_ will hold and execute the methods that Player and Npc Turns have in common.
+
+
+_class NpcTurn_ will hold the NPC's unique turn methods and will probably be initialized from within _class Round_. This class will probably need to reference a random-guess-generator class to create the guesses executed on each NpcTurn instance.
+
+_class PlayerTurn_ will hold the methods that are required for the player's turn to be executed. it will need to contain or reference some user input (perhaps housed in a get_player_guess class?) 
