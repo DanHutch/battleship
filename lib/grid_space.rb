@@ -22,13 +22,13 @@ class GridSpace
     @visual = " "
   end
 
-  def player_occupy
+  def player_occupy(spaces) #spaces - array or single?
     @occupied = true
     @visual = "O"
   end
 
-  def npc_occupy
-    @occupied = true 
+  def npc_occupy(spaces) #spaces - array or single?
+    @occupied = true
   end
 
   def guess
