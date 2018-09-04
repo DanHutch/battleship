@@ -1,17 +1,20 @@
 ## ship_2.rb
 
 require 'pry'
+require './lib/board'
 
 
 class Ship
   attr_reader :owner,
               :length,
-              :spaces
+              :spaces,
+              :damage
 
   def initialize(owner, length, spaces)
     @owner = owner
     @length = length
     @spaces = spaces
+    @damage = 0
   end
 
 # I need to set some validating methods somehow...
@@ -22,10 +25,13 @@ class Ship
 # => spaces.count must be equal to length
 
   def occupy
-    @spaces_occupying.each do |space|
-       #here i need to figure out how to call the occupy methods in the GridSpace class! (or use a method that changes the values of grid_space.occupied (and sometimes grid_space.visual) through an attr_accessor)
-       grid_space =
-       board.grid_space[]
+    binding.pry
+    @spaces.each do |space|
+      if @owner == "npc"
+       Board.npc_map[space].npc_occupy
+      elsif @owner == "player"
+       Board.player_map[space].player_occupy
+      end
     end
   end
 
