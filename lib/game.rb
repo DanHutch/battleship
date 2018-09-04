@@ -1,6 +1,9 @@
-## board_interactions.rb
+## game.rb
 
+require './lib/board'
+require './lib/ship'
 require 'pry'
+
 
 class Game
   attr_reader :npc_ships,

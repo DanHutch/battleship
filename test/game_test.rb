@@ -37,7 +37,6 @@ class GameTest < Minitest::Test
     assert_equal("O", game.board.player_map["A2"].visual)
     assert_equal(true, game.board.player_map["A3"].occupied)
     assert_equal("O", game.board.player_map["A3"].visual)
-    print game.board.display_board
   end
 
 end
