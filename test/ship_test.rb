@@ -2,7 +2,6 @@
 
 require './test_helper'
 require './lib/ship'
-require './lib/board'
 
 class ShipTest < Minitest::Test
 
