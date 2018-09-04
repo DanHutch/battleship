@@ -28,7 +28,7 @@ class Game
     end
   end
 
-  def ship_occupy(ship)
+  def place_ship(ship)
     ship.spaces.each do |space|
        @board.npc_map[space].npc_occupy if ship.owner == "npc"
        @board.player_map[space].player_occupy if ship.owner == "player"

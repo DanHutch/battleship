@@ -76,33 +76,33 @@
         null,
         null,
         1,
-        1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
-        1,
+        2,
         null,
         null,
         null,
@@ -200,6 +200,7 @@
         1,
         null,
         null,
+        1,
         1,
         1,
         1,
@@ -381,6 +382,9 @@
         null,
         null
       ],
+      "/Users/hutch/turing/1module/projects/battleship/test/random_spaces_test.rb": [
+
+      ],
       "/Users/hutch/turing/1module/projects/battleship/test/ship_test.rb": [
         null,
         null,
@@ -429,6 +433,6 @@
         null
       ]
     },
-    "timestamp": 1536081566
+    "timestamp": 1536083220
   }
 }
