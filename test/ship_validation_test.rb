@@ -61,6 +61,4 @@ class ShipValidationTest < Minitest::Test
     assert_equal(expected, validation_2.valid_sets)
   end
 
-
-
 end

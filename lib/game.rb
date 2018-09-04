@@ -2,6 +2,7 @@
 
 require './lib/board'
 require './lib/ship'
+require './lib/ship_validation'
 require 'pry'
 
 
@@ -32,9 +33,24 @@ class Game
   end
 
   def place_ship(ship)
-    ship.spaces.each do |space|
-       @board.npc_map[space].npc_occupy if ship.owner == "npc"
-       @board.player_map[space].player_occupy if ship.owner == "player"
+    if validate_spaces(ship)
+      ship.spaces.each do |space|
+         @board.npc_map[space].npc_occupy if ship.owner == "npc"
+         @board.player_map[space].player_occupy if ship.owner == "player"
+      end
+    else
+      validate_spaces(ship)
+    end
+  end
+
+  def validate_spaces(ship)
+    validation = ShipValidation.new(ship.length)
+    if validation.valid_sets.include?(ship.spaces) == false
+      "Invalid coordinates; please re-enter ship"
+      false
+    else
+      "Ship placed!"
+      true
     end
   end
 

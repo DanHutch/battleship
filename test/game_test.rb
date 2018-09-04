@@ -12,7 +12,7 @@ class GameTest < Minitest::Test
     assert_instance_of(Game, game)
   end
 
-  def test_it_can_creat_ships
+  def test_it_can_create_ships
     game = Game.new
     game.initialize_ship("npc", ["A1", "A2", "A3"], "ship_2")
     assert_equal(1, game.npc_ships.count)
@@ -37,6 +37,22 @@ class GameTest < Minitest::Test
     assert_equal("O", game.board.player_map["A2"].visual)
     assert_equal(true, game.board.player_map["A3"].occupied)
     assert_equal("O", game.board.player_map["A3"].visual)
+  end
+
+  def test_it_can_validate_spaces
+    game = Game.new
+    game.initialize_ship("player", ["A1", "A2", "A3"], "ship_2")
+    expected = true
+    actual = game.validate_spaces(game.player_ships["ship_2"])
+    assert_equal(expected, actual)
+  end
+
+  def test_it_can_tell_invalid_spaces
+    game = Game.new
+    game.initialize_ship("player", ["A1", "A2", "A4"], "ship_2")
+    expected = false
+    actual = game.validate_spaces(game.player_ships["ship_2"])
+    assert_equal(expected, actual)
   end
 
 end
