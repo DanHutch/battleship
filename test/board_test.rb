@@ -10,27 +10,20 @@ class BoardTest < Minitest::Test
     assert_instance_of(Board, board)
   end
 
-  def test_it_populates_rows_with_grid_spaces
+  def test_it_populates_maps_with_grid_spaces
     board = Board.new
-    assert_equal(4, board.npc_a_row.count)
-    assert_equal(4, board.npc_b_row.count)
-    assert_equal(4, board.npc_c_row.count)
-    assert_equal(4, board.npc_d_row.count)
-    assert_equal(4, board.player_a_row.count)
-    assert_equal(4, board.player_b_row.count)
-    assert_equal(4, board.player_c_row.count)
-    assert_equal(4, board.player_d_row.count)
+    assert_equal(16, board.npc_map.count)
+    assert_equal(16, board.player_map.count)
     actual = GridSpace
-    expected = board.npc_a_row['A1']
+    expected = board.npc_map['A1']
     assert_instance_of(actual, expected)
   end
 
-  def test_it_can_render_and_display_map
+  def test_it_can_display_board
     board = Board.new
-    p board.display_map
     expected =
     "==========\n. 1 2 3 4 \nA     \nB     \nC     \nD     \n==========\n. 1 2 3 4 \nA     \nB     \nC     \nD     \n=========="
-    actual = board.display_map
+    actual = board.display_board
     assert_equal(expected, actual)
   end
 

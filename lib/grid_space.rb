@@ -28,7 +28,7 @@ class GridSpace
   end
 
   def npc_occupy
-    @occupied = true 
+    @occupied = true
   end
 
   def guess
