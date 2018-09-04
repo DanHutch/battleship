@@ -1,3 +1,2 @@
-## .gitignore
-
-test/coverage/
+coverage/
+notes.txt
