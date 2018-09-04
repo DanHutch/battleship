@@ -1,6 +1,6 @@
 ## grid_space_test.rb
 
-require './test/test_helper'
+require './test_helper'
 require './lib/grid_space'
 
 class GridSpaceTest < Minitest::Test

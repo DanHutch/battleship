@@ -1,6 +1,6 @@
 ## board_test.rb
 
-require './test/test_helper'
+require './test_helper'
 require './lib/board'
 
 class BoardTest < Minitest::Test

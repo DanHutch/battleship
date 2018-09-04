@@ -1,6 +1,6 @@
 ## ship_3_test.rb
 
-require './test/test_helper'
+require './test_helper'
 require './lib/ship'
 require './lib/board'
 
@@ -31,13 +31,13 @@ class ShipTest < Minitest::Test
     assert_equal(0, ship.damage)
   end
 
-  def test_it_can_occupy_those_spaces
-    board = Board.new
-    ship = Ship.new("npc", 2, ["A1", "A2", "A3"])
-    ship.occupy
-    assert_equal(true, board.npc_map["A1"].occupied)
-    assert_equal(true, #space2.occupied)
-    assert_equal(true, #space3.occupied)
-  end
+  # def test_it_can_occupy_those_spaces
+  #   board = Board.new
+  #   ship = Ship.new("npc", 2, ["A1", "A2", "A3"])
+  #   ship.occupy
+  #   assert_equal(true, board.npc_map["A1"].occupied)
+  #   assert_equal(true, #space2.occupied)
+  #   assert_equal(true, #space3.occupied)
+  # end
 
 end
