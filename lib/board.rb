@@ -47,32 +47,33 @@ class Board
   end
 
   def render_all_lines
-    @npc_a_line     = "A " +
+    @npc_a_line         = "A " +
       @npc_a_row['A1'].visual + @npc_a_row['A2'].visual + @npc_a_row['A4'].visual + @npc_a_row['A4'].visual + "\n"
 
-    @npc_b_line     = "B " +
+    @npc_b_line         = "B " +
       @npc_b_row['B1'].visual + @npc_b_row['B2'].visual + @npc_b_row['B4'].visual + @npc_b_row['B4'].visual + "\n"
 
-    @npc_c_line     = "C " +
+    @npc_c_line         = "C " +
       @npc_c_row['C1'].visual + @npc_c_row['C2'].visual + @npc_c_row['C4'].visual + @npc_c_row['C4'].visual + "\n"
 
-    @npc_d_line     = "D " +
+    @npc_d_line         = "D " +
       @npc_d_row['D1'].visual + @npc_d_row['D2'].visual + @npc_d_row['D4'].visual + @npc_d_row['D4'].visual + "\n"
 
-    @player_a_line     = "A " +
+    @player_a_line      = "A " +
       @player_a_row['A1'].visual + @player_a_row['A2'].visual + @player_a_row['A4'].visual + @player_a_row['A4'].visual + "\n"
 
-    @player_b_line     = "B " +
+    @player_b_line      = "B " +
       @player_b_row['B1'].visual + @player_b_row['B2'].visual + @player_b_row['B4'].visual + @player_b_row['B4'].visual + "\n"
 
-    @player_c_line     = "C " +
+    @player_c_line      = "C " +
       @player_c_row['C1'].visual + @player_c_row['C2'].visual + @player_c_row['C4'].visual + @player_c_row['C4'].visual + "\n"
 
-    @player_d_line     = "D " +
+    @player_d_line      = "D " +
       @player_d_row['D1'].visual + @player_d_row['D2'].visual + @player_d_row['D4'].visual + @player_d_row['D4'].visual + "\n"
   end
 
   def populate_all_rows
+
     populate_row(@npc_a_row, ['A1', 'A2', 'A3', 'A4'])
     populate_row(@npc_b_row, ['B1', 'B2', 'B3', 'B4'])
     populate_row(@npc_c_row, ['C1', 'C2', 'C3', 'C4'])

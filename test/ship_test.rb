@@ -26,7 +26,9 @@ class ShipTest < Minitest::Test
   end
 
   # def test_it_can_occupy_those_spaces
+  #   board = Board.new
   #   ship = Ship.new("npc", 2, ["A1", "A2", "A3"])
+  #   board.npc_a_row['A1']
   #   ship.occupy
   #   assert_equal(true, #space1.occupied)
   #   assert_equal(true, #space2.occupied)
