@@ -22,7 +22,7 @@ class BoardTest < Minitest::Test
   def test_it_can_display_board
     board = Board.new
     expected =
-    "==========\n. 1 2 3 4 \nA     \nB     \nC     \nD     \n==========\n. 1 2 3 4 \nA     \nB     \nC     \nD     \n=========="
+    "==========\n. 1 2 3 4 \nA        \nB        \nC        \nD        \n==========\n. 1 2 3 4 \nA        \nB        \nC        \nD        \n=========="
     actual = board.display_board
     assert_equal(expected, actual)
   end
