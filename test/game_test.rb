@@ -87,7 +87,7 @@ class GameTest < Minitest::Test
     assert_equal(true, actual)
   end
 
-  def test_it_will_invalidate_occupied_spaces
+  def test_it_will_invalidate_occupied_spaces_for_player
     game = Game.new
     game.initialize_ship("player", ["A1", "A2", "A3"], "ship_3")
     actual = game.check_unoccupied(game.player_ships["ship_3"])
@@ -98,7 +98,19 @@ class GameTest < Minitest::Test
     actual = game.check_unoccupied(game.player_ships["ship_2"])
     refute(actual)
     game.place_ship(game.player_ships["ship_2"])
-    print game.board.display_board
+  end
+
+  def test_it_will_invalidate_occupied_spaces_for_npc
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2", "A3"], "ship_3")
+    actual = game.check_unoccupied(game.npc_ships["ship_3"])
+    assert(actual)
+    game.place_ship(game.npc_ships["ship_3"])
+    assert_equal(true, game.board.npc_map["A1"].occupied)
+    game.initialize_ship("npc", ["A1", "B1"], "ship_2")
+    actual = game.check_unoccupied(game.npc_ships["ship_2"])
+    refute(actual)
+    game.place_ship(game.npc_ships["ship_2"])
   end
 
 end
