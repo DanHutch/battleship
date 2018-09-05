@@ -97,6 +97,8 @@ class GameTest < Minitest::Test
     game.initialize_ship("player", ["A1", "B1"], "ship_2")
     actual = game.check_unoccupied(game.player_ships["ship_2"])
     refute(actual)
+    game.place_ship(game.player_ships["ship_2"])
+    print game.board.display_board
   end
 
 end

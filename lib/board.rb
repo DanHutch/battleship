@@ -35,28 +35,28 @@ class Board
 
   def render_all_lines
     @npc_a_line         = "A " +
-      @npc_map['A1'].visual + @npc_map['A2'].visual + @npc_map['A4'].visual + @npc_map['A4'].visual + "\n"
+      @npc_map['A1'].visual + " " + @npc_map['A2'].visual + " " + @npc_map['A4'].visual + " " + @npc_map['A4'].visual + "\n"
 
     @npc_b_line         = "B " +
-      @npc_map['B1'].visual + @npc_map['B2'].visual + @npc_map['B4'].visual + @npc_map['B4'].visual + "\n"
+      @npc_map['B1'].visual + " " + @npc_map['B2'].visual + " " + @npc_map['B3'].visual + " " + @npc_map['B4'].visual + "\n"
 
     @npc_c_line         = "C " +
-      @npc_map['C1'].visual + @npc_map['C2'].visual + @npc_map['C4'].visual + @npc_map['C4'].visual + "\n"
+      @npc_map['C1'].visual + " " + @npc_map['C2'].visual + " " + @npc_map['C3'].visual + " " + @npc_map['C4'].visual + "\n"
 
     @npc_d_line         = "D " +
-      @npc_map['D1'].visual + @npc_map['D2'].visual + @npc_map['D4'].visual + @npc_map['D4'].visual + "\n"
+      @npc_map['D1'].visual + " " + @npc_map['D2'].visual + " " + @npc_map['D3'].visual + " " + @npc_map['D4'].visual + "\n"
 
     @player_a_line      = "A " +
-      @player_map['A1'].visual + @player_map['A2'].visual + @player_map['A4'].visual + @player_map['A4'].visual + "\n"
+      @player_map['A1'].visual + " " + @player_map['A2'].visual + " " + @player_map['A3'].visual + " " + @player_map['A4'].visual + "\n"
 
     @player_b_line      = "B " +
-      @player_map['B1'].visual + @player_map['B2'].visual + @player_map['B4'].visual + @player_map['B4'].visual + "\n"
+      @player_map['B1'].visual + " " + @player_map['B2'].visual + " " + @player_map['B3'].visual + " " + @player_map['B4'].visual + "\n"
 
     @player_c_line      = "C " +
-      @player_map['C1'].visual + @player_map['C2'].visual + @player_map['C4'].visual + @player_map['C4'].visual + "\n"
+      @player_map['C1'].visual + " " + @player_map['C2'].visual + " " + @player_map['C3'].visual + " " + @player_map['C4'].visual + "\n"
 
     @player_d_line      = "D " +
-      @player_map['D1'].visual + @player_map['D2'].visual + @player_map['D4'].visual + @player_map['D4'].visual + "\n"
+      @player_map['D1'].visual + " " + @player_map['D2'].visual + " " + @player_map['D3'].visual + " " + @player_map['D4'].visual + "\n"
   end
 
   def populate_maps
