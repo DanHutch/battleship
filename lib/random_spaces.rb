@@ -11,5 +11,6 @@ class RandomSpaces
     @spaces = []
   end
 
+  
 
 end

@@ -24,6 +24,11 @@ class Game
   # => => need to have validation conditions for the strings
   # => spaces.count must be equal to length
 
+  def npc_place_ships
+
+
+  end
+
   def initialize_ship(owner, spaces, ship)
     if owner == "npc"
       @npc_ships[ship] = Ship.new(owner, spaces)
@@ -33,25 +38,37 @@ class Game
   end
 
   def place_ship(ship)
-    if validate_spaces(ship)
+    if validate_spaces(ship) && check_unoccupied(ship)
       ship.spaces.each do |space|
          @board.npc_map[space].npc_occupy if ship.owner == "npc"
          @board.player_map[space].player_occupy if ship.owner == "player"
       end
     else
-      validate_spaces(ship)
+      "Error: invalid or occupied ship placement"
     end
   end
 
   def validate_spaces(ship)
     validation = ShipValidation.new(ship.length)
-    if validation.valid_sets.include?(ship.spaces) == false
-      "Invalid coordinates; please re-enter ship"
-      false
-    else
-      "Ship placed!"
-      true
+    validation.valid_sets.include?(ship.spaces)
+  end
+
+  def check_unoccupied(ship)
+    occupied_spaces = []
+    if ship.owner == "player"
+      ship.spaces.each do |space|
+        if board.player_map[space].occupied
+          occupied_spaces << board.player_map[space]
+        end
+      end
+    elsif ship.owner == "npc"
+      ship.spaces.each do |space|
+        if board.npc_map[space].occupied
+          occupied_spaces << board.npc_map[space]
+        end
+      end
     end
+    occupied_spaces == []
   end
 
 end
