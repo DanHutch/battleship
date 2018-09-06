@@ -37,6 +37,7 @@ class RandomSpacesTest < Minitest::Test
     random.random_3_set
     assert_equal(2, random.coordinates.count)
     assert_equal(3, random.coordinates[1].count)
+    p random.coordinates
   end
 
 end

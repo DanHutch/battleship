@@ -29,12 +29,8 @@ class RandomSpaces
   end
 
   def valid?(set)
-    set.map do |space|
-      if @coordinates.include?(set)
-        false
-      else
-        true
-      end
+    something = set.all? do |space|
+      !@coordinates.flatten.include?(space)
     end
   end
 
