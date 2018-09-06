@@ -133,12 +133,32 @@ class GameTest < Minitest::Test
     assert_equal(expected, actual)
   end
 
+  def test_player_hit_shows_on_board
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2"], "ship_2")
+    game.place_ship(game.npc_ships["ship_2"])
+    game.player_shot("A2")
+    expected = "H"
+    actual = game.board.npc_map["A2"].visual
+    assert_equal(expected, actual)
+  end
+
   def test_a_player_shot_can_miss
     game = Game.new
     game.initialize_ship("npc", ["A1", "A2"], "ship_2")
     game.place_ship(game.npc_ships["ship_2"])
     expected = "Miss!"
     actual = game.player_shot("A3")
+    assert_equal(expected, actual)
+  end
+
+  def test_player_miss_shows_on_board
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2"], "ship_2")
+    game.place_ship(game.npc_ships["ship_2"])
+    game.player_shot("A3")
+    expected = "M"
+    actual = game.board.npc_map["A3"].visual
     assert_equal(expected, actual)
   end
 

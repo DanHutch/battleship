@@ -39,7 +39,26 @@ class ShipTest < Minitest::Test
     assert_equal(2, ship.damage)
     ship.hit
     assert_equal(3, ship.damage)
+  end
+
+  def test_2_ship_can_be_sunk
+    ship = Ship.new("npc", ["A1", "A2"])
+    assert_equal(0, ship.damage)
+    ship.hit
+    ship.hit
+    assert_equal(2, ship.damage)
     assert(ship.sunk?)
+    assert_equal("2-Ship Sunk!", ship.sunk?)
+  end
+
+  def test_3_ship_can_be_sunk
+    ship = Ship.new("npc", ["A1", "A2", "A3"])
+    assert_equal(0, ship.damage)
+    ship.hit
+    ship.hit
+    ship.hit
+    assert(ship.sunk?)
+    assert_equal("3-Ship Sunk!", ship.sunk?)
   end
 
 end

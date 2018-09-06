@@ -73,4 +73,8 @@ class Game
     board.npc_map[grid_space].guess
   end
 
+  def player_hits_ship(coordinate)
+    
+  end
+
 end
