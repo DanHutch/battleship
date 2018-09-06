@@ -34,7 +34,7 @@ class RandomSpaces
   end
 
   def valid?(set)
-    something = set.all? do |space|
+    set.all? do |space|
       !@coordinates.flatten.include?(space)
     end
   end

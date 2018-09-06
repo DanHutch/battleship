@@ -22,7 +22,13 @@ class Ship
   end
 
   def sunk?
-    @damage == @length
+    if @length == 3 && @damage == 3
+      "3-Ship Sunk!"
+    elsif @length == 2 && @damage == 2
+      "2-Ship Sunk!"
+    else
+      false
+    end
   end
 
 end
