@@ -10,6 +10,11 @@ class RandomSpaces
     @coordinates = []
   end
 
+  def get_random_sets
+    random_2_set
+    random_3_set
+  end
+
   def random_2_set
     sets = ShipValidation.new(2).valid_sets
     @coordinates << sets.sample
@@ -29,12 +34,8 @@ class RandomSpaces
   end
 
   def valid?(set)
-    set.map do |space|
-      if @coordinates.include?(set)
-        false
-      else
-        true
-      end
+    something = set.all? do |space|
+      !@coordinates.flatten.include?(space)
     end
   end
 
