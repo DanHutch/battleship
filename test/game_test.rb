@@ -124,4 +124,10 @@ class GameTest < Minitest::Test
     assert_equal(5, actual)
   end
 
+  def test_a_player_can_shoot
+    game = Game.new
+    game.npc_place_ships
+    game.player_shot("A3")
+  end
+
 end

@@ -70,7 +70,7 @@ class Game
   end
 
   def player_shot(grid_space)
-
+    board.npc_map[grid_space].guess
   end
 
 end
