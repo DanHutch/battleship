@@ -70,11 +70,16 @@ class Game
   end
 
   def player_shot(grid_space)
+    player_hits_ship(grid_space)
     board.npc_map[grid_space].guess
   end
 
   def player_hits_ship(coordinate)
-    
+    @npc_ships.values.find do |ship|
+      if ship.spaces.include?(coordinate)
+          ship.hit
+      end
+    end
   end
 
 end

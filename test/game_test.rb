@@ -150,6 +150,7 @@ class GameTest < Minitest::Test
     expected = "Miss!"
     actual = game.player_shot("A3")
     assert_equal(expected, actual)
+    assert_equal(0, game.npc_ships["ship_2"].damage)
   end
 
   def test_player_miss_shows_on_board
@@ -169,6 +170,31 @@ class GameTest < Minitest::Test
     expected = "Already guessed; please guess again."
     actual = game.player_shot("A3")
     assert_equal(expected, actual)
+  end
+
+  def test_hits_damage_ship
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2"], "ship_2")
+    game.place_ship(game.npc_ships["ship_2"])
+    assert_equal(0, game.npc_ships["ship_2"].damage)
+    game.player_shot("A2")
+    assert_equal(1, game.npc_ships["ship_2"].damage)
+    game.player_shot("A1")
+    assert_equal(2, game.npc_ships["ship_2"].damage)
+    assert(game.npc_ships["ship_2"].sunk?)
+    assert_equal("2-Ship Sunk!", game.npc_ships["ship_2"].sunk?)
+
+    game.initialize_ship("npc", ["B1", "B2", "B3"], "ship_3")
+    game.place_ship(game.npc_ships["ship_3"])
+    assert_equal(0, game.npc_ships["ship_3"].damage)
+    game.player_shot("B2")
+    assert_equal(1, game.npc_ships["ship_3"].damage)
+    game.player_shot("B1")
+    assert_equal(2, game.npc_ships["ship_3"].damage)
+    game.player_shot("B3")
+    assert_equal(3, game.npc_ships["ship_3"].damage)
+    assert(game.npc_ships["ship_3"].sunk?)
+    assert_equal("3-Ship Sunk!", game.npc_ships["ship_3"].sunk?)
   end
 
 end
