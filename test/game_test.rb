@@ -124,10 +124,31 @@ class GameTest < Minitest::Test
     assert_equal(5, actual)
   end
 
-  def test_a_player_can_shoot
+  def test_a_player_shot_can_hit
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2"], "ship_2")
+    game.place_ship(game.npc_ships["ship_2"])
+    expected = "Hit!"
+    actual = game.player_shot("A2")
+    assert_equal(expected, actual)
+  end
+
+  def test_a_player_shot_can_miss
+    game = Game.new
+    game.initialize_ship("npc", ["A1", "A2"], "ship_2")
+    game.place_ship(game.npc_ships["ship_2"])
+    expected = "Miss!"
+    actual = game.player_shot("A3")
+    assert_equal(expected, actual)
+  end
+
+  def test_it_returns_warning_for_redundant_guess
     game = Game.new
     game.npc_place_ships
     game.player_shot("A3")
+    expected = "Already guessed; please guess again."
+    actual = game.player_shot("A3")
+    assert_equal(expected, actual)
   end
 
 end
