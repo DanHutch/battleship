@@ -3,6 +3,7 @@
 require './lib/board'
 require './lib/ship'
 require './lib/ship_validation'
+require './lib/random_spaces'
 require 'pry'
 
 
@@ -17,13 +18,14 @@ class Game
     @player_ships = {}
   end
 
+##
   def npc_place_ships
     random = RandomSpaces.new
-    #randomize placements for ship_2
-    initialize_ship("npc", random_set_2, "ship_2")
-    #place ship (with loop if placement is not valid)
-    initialize_ship("npc", random_set_3, "ship_3")
-    #place ship (with loop if placement is not valid)
+    random.get_random_sets
+    initialize_ship("npc", random.coordinates[0], "ship_2")
+    initialize_ship("npc", random.coordinates[1], "ship_3")
+    place_ship(@npc_ships["ship_2"])
+    place_ship(@npc_ships["ship_3"])
   end
 
   def initialize_ship(owner, spaces, name)

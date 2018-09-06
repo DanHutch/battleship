@@ -40,4 +40,12 @@ class RandomSpacesTest < Minitest::Test
     p random.coordinates
   end
 
+  def test_it_can_get_random_sets_in_one_call
+    random = RandomSpaces.new
+    random.get_random_sets
+    assert_equal(2, random.coordinates.count)
+    assert_equal(2, random.coordinates[0].count)
+    assert_equal(3, random.coordinates[1].count)
+  end
+
 end

@@ -4,6 +4,7 @@ require './test_helper'
 require './lib/game'
 require './lib/ship'
 require './lib/board'
+require './lib/grid_space'
 
 class GameTest < Minitest::Test
 
@@ -111,6 +112,16 @@ class GameTest < Minitest::Test
     actual = game.check_unoccupied(game.npc_ships["ship_2"])
     refute(actual)
     game.place_ship(game.npc_ships["ship_2"])
+  end
+
+  def test_npc_can_place_ships
+    game = Game.new
+    game.npc_place_ships
+    actual =
+    game.board.npc_map.find_all do |key, value|
+      value.occupied == true
+    end.count
+    assert_equal(5, actual)
   end
 
 end
