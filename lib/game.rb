@@ -18,7 +18,6 @@ class Game
     @player_ships = {}
   end
 
-##
   def npc_place_ships
     random = RandomSpaces.new
     random.get_random_sets
@@ -68,6 +67,10 @@ class Game
       end
     end
     occupied_spaces == []
+  end
+
+  def player_shot(grid_space)
+
   end
 
 end
