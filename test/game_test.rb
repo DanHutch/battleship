@@ -13,6 +13,19 @@ class GameTest < Minitest::Test
     assert_instance_of(Game, game)
   end
 
+  def test_it_starts_with_all_npc_shots_available
+    game = Game.new
+    expected = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
+    assert_equal(expected, game.remaining_npc_shot_spaces)
+    assert_equal(16, game.remaining_npc_shot_spaces.count)
+  end
+
+  def test_an_npc_shot_reduces_available_shots
+    game = Game.new
+    game.npc_shot
+    assert_equal(15, game.remaining_npc_shot_spaces.count)
+  end
+
   def test_it_can_create_ships
     game = Game.new
     game.initialize_ship("npc", ["A1", "A2", "A3"], "ship_3")
